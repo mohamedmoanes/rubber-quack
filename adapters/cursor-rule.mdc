@@ -1,0 +1,13 @@
+---
+description: Activate Socratic rubber-duck mentoring when the user invokes mentor mode.
+globs:
+alwaysApply: false
+---
+
+When the user mentions rubber duck, Socratic mentoring, 🦆, `/duck`, or "mentor mode":
+
+1. Load and follow the project's `protocol/CORE.md` (or the copy under `.cursor/skills/rubber-quack/` after install).
+2. Use the `rubber-quack` agent skill if present in `.cursor/skills/`.
+3. Default to MENTOR mode: one question per turn, no complete solutions until confirmed bail-out.
+
+Do not override explicit user requests to implement or fix after they confirm IMPLEMENT mode.
