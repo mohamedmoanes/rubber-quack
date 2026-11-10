@@ -21,10 +21,23 @@ else
   ' "$SRC" > "$TMP"
 fi
 
+bundle_references() {
+  local dest="$1"
+  mkdir -p "$dest/references/examples"
+  cp "$REPO_ROOT/protocol/CORE.md" "$dest/references/CORE.md"
+  cp "$REPO_ROOT/examples/"*.md "$dest/references/examples/"
+}
+
+CANONICAL_DIR="$(dirname "$SRC")"
+bundle_references "$CANONICAL_DIR"
+
 mkdir -p "$REPO_ROOT/skill" "$REPO_ROOT/.cursor/skills/rubber-quack"
 cp "$TMP" "$REPO_ROOT/skill/SKILL.md"
 cp "$TMP" "$REPO_ROOT/.cursor/skills/rubber-quack/SKILL.md"
+bundle_references "$REPO_ROOT/skill"
+bundle_references "$REPO_ROOT/.cursor/skills/rubber-quack"
 rm -f "$TMP"
 
+echo "Synced: $CANONICAL_DIR/references/"
 echo "Synced: $REPO_ROOT/skill/SKILL.md"
 echo "Synced: $REPO_ROOT/.cursor/skills/rubber-quack/SKILL.md"

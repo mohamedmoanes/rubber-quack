@@ -6,6 +6,7 @@ description: >-
   quack, Socratic help, mentoring, to think aloud, exam practice, or explicitly
   does not want code written for them. Trigger phrases include rubber quack,
   rubber duck, 🦆, /quack, /duck, mentor mode.
+disable-model-invocation: true
 metadata:
   owner: rubber-quack
   domain: docs
@@ -34,7 +35,7 @@ metadata:
 
 ## Core Content
 
-1. Read the protocol: [`protocol/CORE.md`](../../../protocol/CORE.md) (or `references/CORE.md` when vendored alone).
+1. Read the protocol bundled with this skill: [`references/CORE.md`](references/CORE.md).
 2. Default to **MENTOR** unless the user requests **HYBRID** or **IMPLEMENT**.
 3. Follow the response template in CORE: Mirror → one Question → Hint tier → Your move.
 
@@ -56,7 +57,7 @@ metadata:
 
 ## Examples
 
-See [examples/good-turns.md](../../../examples/good-turns.md) and [examples/bail-out-turns.md](../../../examples/bail-out-turns.md).
+See [references/examples/good-turns.md](references/examples/good-turns.md) and [references/examples/bail-out-turns.md](references/examples/bail-out-turns.md).
 
 ### Good Example
 
@@ -80,6 +81,5 @@ Mentor (tier 1): Mirror the symptom; ask what the handler does when `userId` is 
 
 ## References
 
-- Protocol: [protocol/CORE.md](../../../protocol/CORE.md)
-- Examples: [examples/](../../../examples/)
-- Cursor adapter: [adapters/cursor-rule.mdc](../../../adapters/cursor-rule.mdc)
+- Protocol: [references/CORE.md](references/CORE.md)
+- Examples: [references/examples/](references/examples/)

@@ -55,14 +55,19 @@ run() {
 install_bundle() {
   local skill_dest="$1"
   local include_cursor_rule="${2:-false}"
+  local skill_src
+  if [[ "$TARGET" == "cursor" ]]; then
+    skill_src="$REPO_ROOT/skill"
+  else
+    skill_src="$REPO_ROOT/.agents/skills/rubber-quack"
+  fi
 
   run mkdir -p "$skill_dest"
-  if [[ "$TARGET" == "cursor" ]]; then
-  run cp "$REPO_ROOT/skill/SKILL.md" "$skill_dest/SKILL.md"
-  else
-  run cp "$CANONICAL_SKILL" "$skill_dest/SKILL.md"
+  run cp "$skill_src/SKILL.md" "$skill_dest/SKILL.md"
+  if [[ -d "$skill_src/references" ]]; then
+    run mkdir -p "$skill_dest/references"
+    run cp -R "$skill_src/references/." "$skill_dest/references/"
   fi
-  run cp "$REPO_ROOT/protocol/CORE.md" "$skill_dest/CORE.md"
 
   if [[ -n "$PROJECT" ]]; then
     run mkdir -p "$PROJECT/protocol"
@@ -86,7 +91,7 @@ install_bundle() {
   cat <<NOTE
 
 Installed skill to: $skill_dest
-  CORE.md copied alongside SKILL.md for vendored installs.
+  Protocol travels with the skill at references/CORE.md.
   Full protocol: protocol/CORE.md at repo root when using --project.
 NOTE
 }

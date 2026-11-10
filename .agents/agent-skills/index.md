@@ -16,13 +16,13 @@ This repository is a **skill distribution** repo. Agents should load skills from
 
 ## Consume from another repo
 
-1. Submodule or copy this repo under `vendor/rubber-quack/`.
-2. Point your root `AGENTS.md` at `vendor/rubber-quack/.agents/agent-skills/index.md`.
-3. Or install only the skill:
+From the project that should use the skill (Node.js 22.20+):
 
 ```bash
-vendor/rubber-quack/scripts/install.sh --target agents --global
+npx skills add mohamedmoanes/rubber-quack
 ```
+
+Add `-g` to install for every project. Without Node, clone this repo and run `scripts/install.sh --target agents --project /path/to/your/app`.
 
 ## IDE mirrors
 
